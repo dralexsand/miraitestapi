@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 require_once '../vendor/autoload.php';
 
-$absolutePathToEnvFile = __DIR__ . '/../.env';
-(new \App\Helpers\DotEnvReader($absolutePathToEnvFile))->load();
+(new \App\Helpers\DotEnvReader(__DIR__ . '/../.env'))->load();
 
 $api = new \App\Core\Api\ApiEntry();
 $api->run();
