@@ -34,7 +34,7 @@ class GetGmtApiCommand extends ApiCore
             ->cityService
             ->convertIso3ToCountryCode($city['country_iso3']);*/
 
-        $methodData = $this->apiTzMethodsCollect()['GET_TIMEZONE'];
+        $methodData = $this->cityService->apiTzMethodsCollect()['GET_TIMEZONE'];
         $url = $methodData['url'];
         $params = $methodData['params'];
 
@@ -43,6 +43,9 @@ class GetGmtApiCommand extends ApiCore
 
         $curl = new CurlRequest();
         $response = $curl->curlGet($url, $params);
-        return json_decode($response, true);
+        try {
+            return json_decode($response, true, 512, JSON_THROW_ON_ERROR);
+        } catch (\JsonException $e) {
+        }
     }
 }

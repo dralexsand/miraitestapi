@@ -6,31 +6,15 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Core\Database\DB;
-use App\Models\City;
-use http\Encoding\Stream;
 
 class CityService
 {
-
-    protected City $model;
     protected \PDO $db;
 
     public function __construct()
     {
-        $this->model = new City();
         $this->db = DB::getInstance();
         \App\Core\Database\DB::setCharsetEncoding();
-    }
-
-    public function getAll()
-    {
-        try {
-            $sqlExample = 'SELECT * FROM city';
-            $stm = $this->db->query($sqlExample);
-            return $stm->fetchAll(\PDO::FETCH_ASSOC);
-        } catch (Exception $e) {
-            print $e->getMessage();
-        }
     }
 
     public function getCityById(string $id)
@@ -126,6 +110,42 @@ class CityService
             'edb894fb-f557-429a-99c0-1c6790a00dfe' => 'Toronto',
             'f0b6e9d7-8fe0-45a9-9f28-b7ded8bc5247' => 'Denver',
             'fafaca34-7550-416a-b96f-c195e022936c' => 'Chicago',
+        ];
+    }
+
+    public function apiTzMethodsCollect(): array
+    {
+        return [
+            'GET_LIST' => [
+                'url' =>
+                    getenv('TIMEZONE_DB_API_ENTRY')
+                    . getenv('TIMEZONE_DB_API_GET_LIST'),
+                'params' => [
+                    'key' => getenv('TIMEZONE_DB_API_KEY'),
+                    'format' => 'json',
+                ],
+            ],
+            'GET_TIMEZONE' => [
+                'url' => getenv('TIMEZONE_DB_API_ENTRY')
+                    . getenv('TIMEZONE_DB_API_GET_TIMEZONE'),
+                'params' => [
+                    'key' => getenv('TIMEZONE_DB_API_KEY'),
+                    'format' => 'json',
+                    'by' => 'position',
+                    'lat' => '', // Get from DB
+                    'lng' => '', // Get from DB
+                ],
+            ],
+            'CONVERT_TIMEZONE' => [
+                'url' => getenv('TIMEZONE_DB_API_ENTRY')
+                    . getenv('TIMEZONE_DB_API_CONVERT_TIMEZONE'),
+                'params' => [
+                    'key' => getenv('TIMEZONE_DB_API_KEY'),
+                    'format' => 'json',
+                    'from' => '', // A valid abbreviation or name of time zone
+                    'to' => '', // A valid abbreviation or name of time zone
+                ],
+            ],
         ];
     }
 
