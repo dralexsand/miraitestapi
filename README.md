@@ -67,6 +67,8 @@ id города можно взять в файле /doc/cities.json
 
 sample config for nginx:
 
+`code`
+
 server {
 listen 80;
 server_name miraiapitest.local;
@@ -99,3 +101,4 @@ root /var/www/html/miraitest.local/public;
     }
 }
 
+`code`
