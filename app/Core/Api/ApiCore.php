@@ -16,7 +16,6 @@ use App\Services\CityService;
 abstract class ApiCore
 {
     protected \PDO $db;
-
     protected CityService $cityService;
 
     public function __construct()

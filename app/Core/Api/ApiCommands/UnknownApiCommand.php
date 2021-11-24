@@ -19,4 +19,9 @@ class UnknownApiCommand extends ApiCore
     {
         throw new BadRequest('Неизвестный запрос');
     }
+
+    protected function getRequest(string $id, string $param)
+    {
+        // TODO: Implement getRequest() method.
+    }
 }
