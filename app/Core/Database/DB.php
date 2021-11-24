@@ -11,13 +11,6 @@ namespace App\Core\Database;
 class DB
 {
 
-    /*protected string $dbConnection;
-    protected string $dbHost;
-    protected string $dbName;
-    protected string $dbUser;
-    protected string $dbPass;
-    protected string $dbCharset;*/
-
     protected static $instance;
 
     protected function __construct()

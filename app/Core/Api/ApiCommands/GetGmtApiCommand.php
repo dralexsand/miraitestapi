@@ -26,14 +26,6 @@ class GetGmtApiCommand extends ApiCore
     {
         $city = $this->cityService->getCityById($id);
 
-        /*$city['original_name'] = $this
-            ->cityService
-            ->getCityNameFromMapById($id);
-
-        $city['code_country'] = $this
-            ->cityService
-            ->convertIso3ToCountryCode($city['country_iso3']);*/
-
         $methodData = $this->cityService->apiTzMethodsCollect()['GET_TIMEZONE'];
         $url = $methodData['url'];
         $params = $methodData['params'];
