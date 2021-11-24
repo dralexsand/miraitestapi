@@ -16,7 +16,8 @@
     "filp/whoops": "^2.14",
     "monolog/monolog": "^2.3",
     "ext-pdo": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-curl": "*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
