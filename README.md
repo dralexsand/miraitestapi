@@ -9,7 +9,7 @@
 http://miraiapitest.local/api/?action=utc&id=040efa6e-3512-4523-a4dc-33e29aece663&gmt=10800
 
 Ответ:
-
+```json
 {
 "result": {
 "status": "OK",
@@ -28,7 +28,7 @@ http://miraiapitest.local/api/?action=utc&id=040efa6e-3512-4523-a4dc-33e29aece66
 },
 "error": null
 }
-
+```
 Локальное время - в поле 'formatted'
 
 
@@ -41,7 +41,7 @@ http://miraiapitest.local/api/?action=utc&id=040efa6e-3512-4523-a4dc-33e29aece66
 http://miraiapitest.local/api/?action=gmt&id=040efa6e-3512-4523-a4dc-33e29aece663&utc=10800
 
 Ответ:
-
+```json
 {
 "result": {
 "status": "OK",
@@ -60,7 +60,7 @@ http://miraiapitest.local/api/?action=gmt&id=040efa6e-3512-4523-a4dc-33e29aece66
 },
 "error": null
 }
-
+```
 Метка времени - в поле 'gmtOffset'
 
 id города можно взять в файле /doc/cities.json
